@@ -1,0 +1,22 @@
+---
+// Import the font
+import '@fontsource/jaro';
+---
+
+<div class="hidden md:flex flex-col justify-center p-20 relative mx-32 font-jaro">
+    {Array.from({ length: 15 }).map((_, i) => (
+      <div
+        class="text-white text-6xl font-bold"
+        style={{
+          opacity: (15 - i) / 15,
+        }}
+      >
+        DESIGN
+        <br />
+        STUDIO
+      </div>
+    ))}
+    <div class="absolute -rotate-90 left-0 bottom-[32%] -translate-y-1/2 -translate-x-1/2 text-white text-7xl font-bold whitespace-nowrap">
+      madeleydesignstudio.
+    </div>
+  </div>

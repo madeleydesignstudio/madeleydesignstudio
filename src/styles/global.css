@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+body {
+  background-color: #710485;
+}
+
+@theme {
+  --font-jaro: "Jaro", "sans-serif";
+}
