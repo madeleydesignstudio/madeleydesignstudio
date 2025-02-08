@@ -1,22 +1,37 @@
 ---
 // Import the font
-import '@fontsource/jaro';
+import "@fontsource/jaro";
 ---
 
-<div class="hidden md:flex flex-col justify-center p-20 relative mx-32 font-jaro">
-    {Array.from({ length: 15 }).map((_, i) => (
+<div
+  class="hidden md:flex flex-col justify-center p-20 relative mx-32 font-jaro h-full"
+  x-data="{ 
+    items: Array.from({ length: 20 }).map((_, i) => ({ 
+      opacity: Math.pow((20 - i) / 20, 1.5)
+    })),
+    init() {
+      setInterval(() => {
+        this.items = [...this.items.slice(1), this.items[0]];
+      }, 200);
+    }
+  }"
+>
+  <div class="transition-all duration-500 ease-in-out">
+    <template x-for="(item, index) in items" :key="index">
       <div
-        class="text-white text-6xl font-bold"
-        style={{
-          opacity: (15 - i) / 15,
-        }}
+        class="text-white text-6xl font-bold transition-opacity duration-300"
+        :style="`opacity: ${item.opacity}`"
       >
         DESIGN
         <br />
         STUDIO
       </div>
-    ))}
-    <div class="absolute -rotate-90 left-0 bottom-[32%] -translate-y-1/2 -translate-x-1/2 text-white text-7xl font-bold whitespace-nowrap">
-      madeleydesignstudio.
-    </div>
+    </template>
   </div>
+
+  <div
+    class="absolute -rotate-90 left-0 bottom-[32%] -translate-y-1/2 -translate-x-1/2 text-white text-7xl font-bold whitespace-nowrap"
+  >
+    madeleydesignstudio.
+  </div>
+</div>
