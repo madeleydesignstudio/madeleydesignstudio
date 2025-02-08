@@ -1,33 +1,8 @@
 ---
-// Define image URLs as constants to avoid any potential build issues
-const IMAGEKIT_BASE =
-  "https://ik.imagekit.io/danielcmadeley/madeleydesignstudio";
-const backgrounds = [
-  `${IMAGEKIT_BASE}/background-1.png?updatedAt=1739058183985`,
-  `${IMAGEKIT_BASE}/background-2.png?updatedAt=1739058203974`,
-  `${IMAGEKIT_BASE}/background-3.png?updatedAt=1739058220606`,
-];
-
-const randomBackground =
-  backgrounds[Math.floor(Math.random() * backgrounds.length)];
+import { getRandomBackground } from "../utils/backgrounds";
+const randomBackground = getRandomBackground();
 ---
 
-<!-- ---
-const backgrounds = [
-  "https://ik.imagekit.io/danielcmadeley/madeleydesignstudio/background-1.png?updatedAt=1739058183985",
-  "https://ik.imagekit.io/danielcmadeley/madeleydesignstudio/background-2.png?updatedAt=1739058203974",
-  "https://ik.imagekit.io/danielcmadeley/madeleydesignstudio/background-3.png?updatedAt=1739058220606",
-];
-const randomBackground =
-  backgrounds[Math.floor(Math.random() * backgrounds.length)];
----
-
-<img
-  src={randomBackground}
-  alt="Background"
-  class="fixed inset-0 w-full h-full object-cover -z-10"
-/>
- -->
 <img
   src={randomBackground}
   alt="Background"
