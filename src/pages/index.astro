@@ -7,11 +7,49 @@ import "../styles/global.css";
 <Layout>
   <div class="flex h-full w-full">
     <MadeleyDesignStudioBanner />
-    <div class="w-full h-full p-24">
+    <div class="w-full h-full p-24 flex items-center justify-center">
       <div
-        class="w-full h-full border-2 border-white rounded-2xl p-8 bg-stone-300/30 z-[100]"
+        class="w-fit h-fit rounded-2xl p-12 backdrop-blur-md bg-white/10 border border-white/20 shadow-lg relative overflow-hidden z-[9999]
+        before:absolute before:inset-0 before:bg-gradient-to-r before:from-white/10 before:to-transparent before:rounded-2xl flex items-center justify-center"
       >
-        <p class="text-white">Hello</p>
+        <div class="max-w-3xl mx-auto space-y-6 relative z-10">
+          <h1 class="text-4xl font-medium text-white/90 mb-8 font-jaro">
+            madeleydesignstudio
+          </h1>
+          <p class="text-sm text-white/80 font-light leading-relaxed">
+            In the heart of London's shadowy underworld, where neon lights
+            flicker faintly against the night sky, Madeley Design Studio emerges
+            from the darkness—a company born not in a grandFactory or a bustling
+            cityscape but in the silence between worlds.
+          </p>
+          <p class="text-sm text-white/80 font-light leading-relaxed">
+            With an unknown number of members and a singular focus on
+            innovation, they craft websites that rise above ordinary, structures
+            that defy gravity, and software that speaks to the heart of
+            architecture. Their designs are as intricate as they are simple—each
+            pixel tells a story, each beam carries a promise.
+          </p>
+          <p class="text-sm text-white/80 font-light leading-relaxed">
+            The company thrives at the intersection of technology and
+            engineering, where complex challenges become uncomplicated
+            solutions. Their work is not just design; it's engineering in
+            motion, automating the art of creation into something seamless yet
+            extraordinary.
+          </p>
+          <p class="text-sm text-white/80 font-light leading-relaxed">
+            In an era where progress feels rushed, Madeley Design Studio stands
+            still—pioneering new frontiers with a touch of mystery that keeps
+            them ahead of the curve. They are architects of tomorrow, built on
+            the foundation of yesterday, and their software ensures every
+            project is as perfect as it can be without ever feeling like work.
+          </p>
+          <p class="text-sm text-white/80 font-light leading-relaxed">
+            A force of nature in an age of digital transformation, Madeley
+            Design Studio leads with grace and precision—turning the impossible
+            into the obvious through a blend of creativity and engineering that
+            feels almost too good to be true.
+          </p>
+        </div>
       </div>
     </div>
     <svg class="fixed -bottom-[1000px] -right-[450px] w-[1400px] h-[1400px]">
@@ -33,7 +71,7 @@ import "../styles/global.css";
     </svg>
 
     <div
-      class="fixed -bottom-0 left-0 w-full h-3/4 bg-gradient-to-t from-stone-900 to-transparent z-50"
+      class="fixed -bottom-0 left-0 w-full h-3/4 bg-gradient-to-t from-stone-900 to-transparent -z-[1]"
     >
     </div>
   </div>
