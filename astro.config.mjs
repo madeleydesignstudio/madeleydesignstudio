@@ -3,7 +3,6 @@ import { defineConfig } from "astro/config";
 
 import tailwindcss from "@tailwindcss/vite";
 
-import react from "@astrojs/react";
 
 import alpinejs from "@astrojs/alpinejs";
 
@@ -13,5 +12,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [react(), alpinejs()],
+  integrations: [ alpinejs()],
 });
