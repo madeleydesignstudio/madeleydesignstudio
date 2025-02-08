@@ -3,26 +3,13 @@ import MadeleyDesignStudioBanner from "../components/madeleydesignstudio-banner.
 import Content from "../components/content.astro";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
-
+import Image from "../components/image.astro";
 // Add random background selection
-const backgrounds = [
-  "./background-1.png",
-  "./background-2.png",
-  "./background-3.png",
-];
-const randomBackground =
-  backgrounds[Math.floor(Math.random() * backgrounds.length)];
 ---
 
 <Layout>
   <div class="flex h-full w-full">
-    <!-- Add background image -->
-    <img
-      src={randomBackground}
-      alt="Background"
-      class="fixed inset-0 w-full h-full object-cover -z-10"
-    />
-
+    <Image client:load />
     <MadeleyDesignStudioBanner client:load />
     <Content />
 
