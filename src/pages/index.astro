@@ -1,35 +1,40 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import DesignStudioBanner from '../components/design-studio-banner.astro';
-import MadeleyDesignStudioBanner from '../components/madeleydesignstudio-banner.astro';
-import '../styles/global.css';
-
+import MadeleyDesignStudioBanner from "../components/madeleydesignstudio-banner.astro";
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
 ---
 
-	<Layout>
-		<div class="flex h-screen">
-			<MadeleyDesignStudioBanner />
-			<!-- <DesignStudioBanner /> -->
-			<svg class="absolute -bottom-[1000px] -right-[450px] w-[1400px] h-[1400px]">
-				<circle 
-					cx="625" 
-					cy="625" 
-					r="623" 
-					class="fill-none stroke-white/20 stroke-2" 
-					stroke-dasharray="30 20"
-				/>
-			</svg>
-			<svg class="absolute -top-[500px] -right-[450px] w-[1400px] h-[1400px] ">
-				<circle 
-					cx="625" 
-					cy="625" 
-					r="623" 
-					class="fill-none stroke-white/20 stroke-2" 
-					stroke-dasharray="30 20"
-				/>
-			</svg>
+<Layout>
+  <div class="flex h-full w-full">
+    <MadeleyDesignStudioBanner />
+    <div class="w-full h-full p-24">
+      <div
+        class="w-full h-full border-2 border-white rounded-2xl p-8 bg-stone-300/30 z-[100]"
+      >
+        <p class="text-white">Hello</p>
+      </div>
+    </div>
+    <svg class="fixed -bottom-[1000px] -right-[450px] w-[1400px] h-[1400px]">
+      <circle
+        cx="625"
+        cy="625"
+        r="623"
+        class="fill-none stroke-white/20 stroke-2"
+        stroke-dasharray="30 20"></circle>
+    </svg>
 
-		</div>
-	</Layout>
+    <svg class="fixed -top-[500px] -right-[450px] w-[1400px] h-[1400px]">
+      <circle
+        cx="625"
+        cy="625"
+        r="623"
+        class="fill-none stroke-white/20 stroke-2"
+        stroke-dasharray="30 20"></circle>
+    </svg>
 
-
+    <div
+      class="fixed -bottom-0 left-0 w-full h-3/4 bg-gradient-to-t from-stone-900 to-transparent z-50"
+    >
+    </div>
+  </div>
+</Layout>
