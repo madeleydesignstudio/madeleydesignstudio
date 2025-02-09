@@ -11,6 +11,7 @@
   "dependencies": {
     "@astrojs/alpinejs": "^0.4.3",
     "@astrojs/react": "^4.2.0",
+    "@astrojs/vercel": "^8.0.6",
     "@fontsource/jaro": "^5.1.1",
     "@tailwindcss/vite": "^4.0.1",
     "@types/alpinejs": "^3.13.11",
