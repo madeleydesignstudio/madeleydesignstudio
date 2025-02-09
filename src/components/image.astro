@@ -1,11 +1,42 @@
 ---
-import { getRandomBackground } from "../utils/backgrounds";
-const randomBackground = getRandomBackground();
+import { getRandomBackground, backgrounds } from "../utils/backgrounds";
+const initialBackground = getRandomBackground();
 ---
 
-<img
-  src={randomBackground}
-  alt="Background"
-  class="fixed inset-0 w-full h-full object-cover -z-10"
-  loading="eager"
-/>
+<div
+  x-data={`{
+    background: '${initialBackground}',
+    nextBackground: '${initialBackground}',
+    transitioning: false,
+    backgrounds: ${JSON.stringify(backgrounds)},
+    getRandomBackground() {
+      return this.backgrounds[Math.floor(Math.random() * this.backgrounds.length)]
+    },
+    init() {
+      setInterval(() => {
+        this.nextBackground = this.getRandomBackground()
+        this.transitioning = true
+        setTimeout(() => {
+          this.background = this.nextBackground
+          this.transitioning = false
+        }, 2000)
+      }, 60000)
+    }
+  }`}
+  class="fixed inset-0 -z-10"
+>
+  <img
+    x-bind:src="background"
+    alt="Background"
+    class="absolute inset-0 w-full h-full object-cover transition-opacity duration-2000"
+    :class="transitioning ? 'opacity-0' : 'opacity-100'"
+    loading="eager"
+  />
+  <img
+    x-bind:src="nextBackground"
+    alt="Background"
+    class="absolute inset-0 w-full h-full object-cover transition-opacity duration-2000"
+    :class="transitioning ? 'opacity-100' : 'opacity-0'"
+    loading="eager"
+  />
+</div>

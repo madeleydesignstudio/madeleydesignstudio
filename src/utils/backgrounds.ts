@@ -13,3 +13,6 @@ const backgrounds = [
 export function getRandomBackground(): string {
   return backgrounds[Math.floor(Math.random() * backgrounds.length)];
 }
+
+// Export backgrounds array for client-side use
+export { backgrounds };
