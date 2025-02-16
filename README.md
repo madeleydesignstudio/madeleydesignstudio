@@ -1,37 +1,36 @@
-## 🔮 Tech Arsenal
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-- **Astro** - Our cosmic framework
-- **React** - For when components need to dance
-- **TailwindCSS** - Styling with surgical precision
-- **TypeScript** - Because types are not just a suggestion
+## Getting Started
 
-## 🎪 Available Incantations
+First, run the development server:
 
-| Command           | What it Conjures                   |
-| ----------------- | ---------------------------------- |
-| `npm run dev`     | Opens a portal at `localhost:4321` |
-| `npm run build`   | Materializes your production build |
-| `npm run preview` | Glimpse into the future            |
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## 🌙 The Vision
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-We craft websites that rise above ordinary, structures that defy gravity, and software that speaks to the heart of architecture. Our designs are as intricate as they are simple—each pixel tells a story, each beam carries a promise.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## 🎭 Join the Shadow Council
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-Interested in joining our clandestine operation? We're always looking for digital artisans who:
+## Learn More
 
-- Paint with pixels
-- Sculpt with code
-- Dream in databases
-- Architect in abstractions
+To learn more about Next.js, take a look at the following resources:
 
-## 📜 License
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-MIT - Because even in the shadows, we believe in open source.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
----
+## Deploy on Vercel
 
-<div align="center">
-  <i>In code we trust, in design we must</i>
-</div>
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
