@@ -3,7 +3,13 @@ import { notFound } from "next/navigation";
 import { formatDate } from "@/utils/formatDate";
 import configPromise from "@payload-config";
 
-const BlogPost = async ({ params }: { params: { id: string } }) => {
+type Props = {
+  params: {
+    id: string;
+  };
+};
+
+const BlogPost = async ({ params }: Props) => {
   const payload = await getPayload({ config: configPromise });
 
   // Fetch the specific blog post
