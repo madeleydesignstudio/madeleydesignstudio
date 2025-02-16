@@ -8,7 +8,8 @@ const BlogPost = async ({
   params,
 }: {
   params: { id: string };
-} & { searchParams: { [key: string]: string | string[] | undefined } }) => {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) => {
   const payload = await getPayload({ config: configPromise });
 
   // Fetch the specific blog post
