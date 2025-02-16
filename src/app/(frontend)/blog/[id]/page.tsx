@@ -23,8 +23,11 @@ export async function generateStaticParams() {
   }));
 }
 
-// The params object is automatically inferred by Next.js
-const BlogPost = async ({ params }: { params: { id: string } }) => {
+interface BlogPostProps {
+  params: { id: string };
+}
+
+const BlogPost = async ({ params }: BlogPostProps) => {
   const payload = await getPayload({ config: configPromise });
 
   // Fetch the specific blog post
@@ -34,7 +37,7 @@ const BlogPost = async ({ params }: { params: { id: string } }) => {
   });
 
   // If blog post not found or not published, return 404
-  if (!blog) {
+  if (!blog || blog.status !== "published") {
     notFound();
   }
 
@@ -45,10 +48,13 @@ const BlogPost = async ({ params }: { params: { id: string } }) => {
         <header className="mb-8">
           <h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
           <div className="text-gray-600">
-            Published:{" "}
-            {blog.publishedDate
-              ? formatDate(blog.publishedDate)
-              : "Not published"}
+            <div>ID: {blog.id}</div>
+            <div>
+              Published:{" "}
+              {blog.publishedDate
+                ? formatDate(blog.publishedDate)
+                : "Not published"}
+            </div>
           </div>
         </header>
 
