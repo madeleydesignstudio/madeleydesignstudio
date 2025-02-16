@@ -1,4 +1,3 @@
-import React from "react";
 import { getPayload } from "payload";
 import configPromise from "@payload-config";
 import { formatDate } from "@/utils/formatDate";
