@@ -5,13 +5,6 @@ import { formatDate } from "@/utils/formatDate";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
-// Define TypeScript interface for the page propss
-interface PageProps {
-  params: {
-    id: string;
-  };
-}
-
 // Generate static params for all published blog posts
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise });
@@ -30,7 +23,8 @@ export async function generateStaticParams() {
   }));
 }
 
-const BlogPost = async ({ params }: PageProps) => {
+// The params object is automatically inferred by Next.js
+const BlogPost = async ({ params }: { params: { id: string } }) => {
   const payload = await getPayload({ config: configPromise });
 
   // Fetch the specific blog post
