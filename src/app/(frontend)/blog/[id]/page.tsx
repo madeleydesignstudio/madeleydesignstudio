@@ -3,6 +3,7 @@ import configPromise from "@payload-config";
 import { formatDate } from "@/utils/formatDate";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import type { Blog } from "@/payload-types";
 
 // Generate static params for all published blog posts
 export async function generateStaticParams() {
@@ -29,11 +30,11 @@ interface BlogPostProps {
 const BlogPost = async ({ params }: BlogPostProps) => {
   const payload = await getPayload({ config: configPromise });
 
-  // Fetch the specific blog post
-  const blog = await payload.findByID({
+  // Fetch the specific blog post with type assertion
+  const blog = (await payload.findByID({
     collection: "blog",
     id: params.id,
-  });
+  })) as Blog;
 
   // If blog post not found or not published, return 404
   if (!blog || blog.status !== "published") {
