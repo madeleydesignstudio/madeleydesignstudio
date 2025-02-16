@@ -6,6 +6,9 @@ import configPromise from "@payload-config";
 type Props = {
   params: {
     id: string;
+    slug: string;
+    content: string;
+    title: string;
   };
 };
 
