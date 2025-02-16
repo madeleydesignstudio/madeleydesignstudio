@@ -5,7 +5,7 @@ import { formatDate } from "@/utils/formatDate";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
-// Define TypeScript interface for the page props
+// Define TypeScript interface for the page propss
 interface PageProps {
   params: {
     id: string;
