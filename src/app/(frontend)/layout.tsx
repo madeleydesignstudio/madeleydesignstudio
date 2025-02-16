@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import BottomHeader from "@/components/bottom-header";
 
 const boska = localFont({
   src: "../fonts/Boska-Regular.woff",
@@ -23,7 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${boska.variable} antialiased`}>{children}</body>
+      <body className={`${boska.variable} antialiased`}>
+        {children} <BottomHeader />
+      </body>
     </html>
   );
 }

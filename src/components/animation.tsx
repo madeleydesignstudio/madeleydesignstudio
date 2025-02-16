@@ -272,7 +272,7 @@ const YugaLabsAnimation = () => {
             animate="animate"
             variants={textVariants}
           >
-            madeleydesignstudio
+            madeleydesignstudio.
           </motion.text>
         ))}
         <motion.text
