@@ -25,7 +25,7 @@ const BottomHeader = () => {
     >
       <div className="w-full border-t border-zinc-700 py-2">
         <div className="flex items-center justify-between font-boska font-bold">
-          <h1 className="text-sm">madeleydesignstudio.</h1>
+          <h1 className="text-sm">madeleydesignstudio</h1>
           <div className="flex items-center gap-2 text-xs">
             <Link href="/">Home</Link>
             <Link href="/">About</Link>
