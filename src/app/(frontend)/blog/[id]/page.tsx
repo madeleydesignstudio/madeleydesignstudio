@@ -3,6 +3,7 @@ import { getPayload } from "payload";
 import configPromise from "@payload-config";
 import { formatDate } from "@/utils/formatDate";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 // Define TypeScript interface for the page props
 interface PageProps {
@@ -70,9 +71,9 @@ const BlogPost = async ({ params }: PageProps) => {
 
         {/* Navigation */}
         <div className="mt-8 pt-8 border-t">
-          <a href="/blog" className="text-blue-500 hover:underline">
+          <Link href="/blog" className="text-blue-500 hover:underline">
             ← Back to all posts
-          </a>
+          </Link>
         </div>
       </article>
     </div>
