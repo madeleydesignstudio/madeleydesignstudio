@@ -26,7 +26,9 @@ const BottomHeader = () => {
 
   return (
     <motion.div
-      className="fixed z-[9999] bottom-0 w-full bg-zinc-900 px-12"
+      className={`fixed z-[9999] bottom-0 w-full px-12 ${
+        pathname === "/about" ? "bg-zinc-50" : "bg-zinc-900"
+      } ${pathname === "/about" ? "text-zinc-900" : "text-zinc-50"}`}
       initial={{
         y: pathname === "/" ? 100 : 0,
         opacity: pathname === "/" ? 0 : 1,

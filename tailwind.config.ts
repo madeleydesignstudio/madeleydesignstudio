@@ -14,6 +14,7 @@ export default {
       },
       fontFamily: {
         boska: ["var(--font-boska)"],
+        switzer: ["var(--font-switzer)"],
       },
     },
   },
