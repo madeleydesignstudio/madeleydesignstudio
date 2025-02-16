@@ -23,11 +23,7 @@ export async function generateStaticParams() {
   }));
 }
 
-interface BlogPostProps {
-  params: { id: string };
-}
-
-const BlogPost = async ({ params }: BlogPostProps) => {
+const BlogPost = async ({ params }: { params: { id: string } }) => {
   const payload = await getPayload({ config: configPromise });
 
   // Fetch the specific blog post with type assertion
@@ -63,7 +59,12 @@ const BlogPost = async ({ params }: BlogPostProps) => {
           {blog.content && (
             <div
               dangerouslySetInnerHTML={{
-                __html: typeof blog.content === "string" ? blog.content : "",
+                __html:
+                  blog.content.root?.children
+                    .map((child) =>
+                      child.type === "paragraph" ? child.text : ""
+                    )
+                    .join("\n") || "",
               }}
             />
           )}
