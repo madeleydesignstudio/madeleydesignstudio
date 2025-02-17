@@ -161,6 +161,63 @@ const About = () => {
           </p>
         </div>
       </div>
+      <div className="relative">
+        <h2 className="text-zinc-900 text-[10rem] leading-[0.1] font-switzer font-bold z-10 absolute -top-28 right-0">
+          STRUCTOPIA
+        </h2>
+        <div className="w-[75%] h-[75vh] relative mr-auto mt-36">
+          <Image
+            src="/structopia-madeleydesignstudio.jpg"
+            alt="structopia-madeleydesignstudio"
+            fill
+            className="object-contain rounded-r-xl"
+          />
+        </div>
+      </div>
+      <div className="max-w-2xl ml-auto p-20">
+        <div className=" text-justify flex flex-col gap-y-6">
+          <p className="font-switzer text-zinc-900 text-lg font-semibold">
+            <span className="font-bold text-2xl ">STRUCTOPIA </span>
+            is your next-gen engineering assistant, powered by AI to streamline
+            structural design from RIBA 2 to RIBA 6. We simplify complexity,
+            boost efficiency, and empower engineers to focus on innovation. From
+            concept to construction and beyond, our tools reduce bottlenecks,
+            enhance productivity, and ensure smarter, smoother workflows.
+            STRUCTOPIA isn’t just about speed – it’s about delivering precision,
+            confidence, and sustainability at every stage. Let us transform the
+            way you engineer, so you can build the future with ease.
+          </p>
+          <p className="font-switzer text-zinc-900 text-lg font-semibold">
+            We’re prioritising collaboration tools because we understand that
+            engineering projects are team efforts. Structopia’s platform will
+            allow multiple users to work on the same project in real-time, with
+            version control and commenting features to streamline communication.
+            This is a game-changer for teams working remotely or across
+            different locations.
+          </p>
+          <p className="font-switzer text-zinc-900 text-lg font-semibold">
+            Even in this early stage, we’re integrating AI-powered features to
+            automate repetitive calculations, provide real-time design
+            recommendations, and even predict potential structural issues. This
+            not only saves time but also reduces errors, making engineers more
+            efficient and confident in their work.
+          </p>
+        </div>
+      </div>
+      <div className="w-full">
+        <div className="w-full border-t border-zinc-700" />
+      </div>
+      <div className="w-full h-[50vh] relative">
+        <Image
+          src="/arm.png"
+          alt="footer-madeleydesignstudio"
+          fill
+          className="object-cover"
+        />
+      </div>
+      <div className="w-full">
+        <div className="w-full border-t border-zinc-700" />
+      </div>
     </div>
   );
 };

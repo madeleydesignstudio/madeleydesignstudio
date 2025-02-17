@@ -27,7 +27,7 @@ export const ScrollRevealText: React.FC<ScrollRevealTextProps> = ({
   return (
     <div
       ref={containerRef}
-      className="lowercase text-7xl font-bold text-center max-w-8xl mx-auto flex flex-wrap justify-center gap-x-5"
+      className="text-7xl font-bold text-center max-w-8xl mx-auto flex flex-wrap justify-center gap-x-5"
     >
       {words.map((word, index) => (
         <Word
