@@ -81,7 +81,7 @@ const About = () => {
         />
       </div>
       <div className="relative ">
-        <h2 className="text-zinc-900 text-[15rem] leading-[0.1] font-switzer font-bold z-10 absolute top-0 left-0">
+        <h2 className="text-zinc-900 text-[15rem] leading-[0.1] font-switzer font-bold z-10 absolute -top-14 left-0">
           DINO
         </h2>
         <div className="w-[75%] h-[75vh] relative flex justify-center items-center ml-auto">
@@ -89,81 +89,77 @@ const About = () => {
             src="/dino-madeleydesignstudio.jpg"
             alt="dino-madeleydesignstudio"
             fill
-            className="object-cover "
+            className="object-cover rounded-l-xl"
           />
         </div>
       </div>
-      <div className="max-w-5xl">
-        <p className="font-switzer text-zinc-900 text-xl">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo aperiam
-          dignissimos, temporibus asperiores autem cum beatae blanditiis velit
-          molestiae sed quidem, totam iure sint illo. Suscipit laborum odit
-          sequi magnam? Id obcaecati quas vitae cum totam neque nobis non
-          labore, voluptatem fuga dicta explicabo beatae placeat quis tempore ex
-          vel aliquam quia nam vero? Dolor suscipit nulla quo voluptate culpa.
-          Fuga tenetur similique fugit, minus aliquid commodi quisquam, hic
-          voluptates quia officia eligendi, odio iure illum nihil itaque
-          deleniti voluptatem enim neque molestiae optio ipsum. Placeat
-          voluptatem dignissimos minima aperiam. Tenetur deleniti quo
-          accusantium repellendus, nemo est hic? Iste laborum aliquam sapiente
-          culpa labore reprehenderit corrupti alias eveniet, nobis, voluptate
-          pariatur, magnam facilis? Praesentium autem esse mollitia illum quo
-          magnam. Dolorum non quidem illum ut eius veritatis eos officiis
-          consectetur molestiae repellendus expedita, animi voluptas quibusdam
-          magni labore quae consequatur dolor sint quasi fugit aliquid
-          reprehenderit cumque! Dolorem, magnam quia. Suscipit recusandae veniam
-          magnam sapiente eum architecto sed eius, ipsam deleniti magni ut
-          maxime nesciunt voluptatum, voluptatem laborum ducimus possimus nam,
-          debitis sit nulla odit? Nulla nam sit aut ea. Reprehenderit saepe
-          rerum, iure ipsum tempore eligendi molestiae ad assumenda, ducimus
-          neque, cumque facilis quidem consequuntur praesentium rem iste amet
-          atque. Officia, accusantium. Repudiandae quo soluta a aliquid autem
-          aperiam! Iste accusantium modi quisquam tenetur placeat cum unde
-          aperiam, quae ut sed error minus mollitia! Laboriosam, impedit
-          reiciendis aliquam tenetur, magnam commodi assumenda vitae cum odit
-          repudiandae nobis nesciunt porro. Necessitatibus quasi laboriosam
-          ipsum praesentium aspernatur tempore sit debitis perspiciatis pariatur
-          eum dolore architecto, corporis deserunt? Neque expedita similique
-          fuga laboriosam, numquam dolorem praesentium nisi cupiditate autem,
-          aspernatur architecto consectetur? Consequuntur similique at, magnam
-          nemo delectus dolore ipsam maxime recusandae dicta, quae earum
-          eligendi mollitia consequatur exercitationem sunt dignissimos debitis
-          ullam laboriosam minus commodi itaque? Qui odio quaerat autem beatae?
-          Impedit officia quisquam cumque necessitatibus qui in deserunt. Nisi
-          officia repellendus quae quia quo pariatur ducimus quibusdam neque eos
-          saepe, quam omnis quasi eaque excepturi cum. Similique cumque
-          inventore qui. Asperiores, illo iure dolor porro ab inventore
-          provident praesentium, et quam repudiandae blanditiis natus id
-          accusantium tempora omnis ipsa velit? Odio natus, quia quis blanditiis
-          ea optio debitis! Tempora, impedit. Voluptatem delectus molestiae sit
-          vero dolore quia velit maiores, porro natus culpa illum quibusdam
-          eveniet esse beatae dolorem vel repellendus soluta dignissimos. Autem
-          accusamus numquam facilis quia quod ipsum magnam! Deserunt impedit rem
-          iste natus incidunt dicta reprehenderit cumque fugiat voluptatibus,
-          expedita, exercitationem porro commodi aspernatur unde beatae sint,
-          voluptates quis blanditiis. Esse, numquam. Molestias repudiandae
-          dolorem suscipit culpa amet! Tenetur, nostrum doloremque maiores
-          itaque veniam est enim veritatis quibusdam laboriosam harum vero quod
-          eligendi consequatur aut ullam dicta? Perferendis sint facilis velit
-          accusamus dolorum possimus dolores expedita corrupti sapiente! Ipsa,
-          tenetur, maiores quo voluptatum, atque at accusamus iste magni
-          eligendi voluptates temporibus? Earum rem molestias vel quam, tenetur
-          corrupti, veritatis tempore necessitatibus quasi non perferendis nihil
-          modi officia ut? Voluptatibus dicta aperiam animi maxime, modi ducimus
-          quam veniam autem dignissimos? Facere porro excepturi laudantium
-          molestiae! Numquam, eos reiciendis, suscipit, ipsa cumque sed officia
-          sit blanditiis ex libero vel a! Blanditiis libero consequatur commodi
-          accusantium in, ducimus aliquid ut distinctio doloremque dolorem
-          eveniet a eius? Blanditiis, omnis impedit velit vero, porro facilis
-          dolorum optio, autem voluptatum est ex a maxime. Accusantium sapiente
-          harum quisquam, fugiat, fuga voluptatum accusamus quibusdam ducimus
-          reprehenderit minus pariatur officiis tempora, culpa cumque aliquam
-          expedita ullam ab sequi! Repellat deleniti, consectetur laborum nisi
-          perspiciatis quae accusantium. Corrupti asperiores eos mollitia,
-          expedita ratione dolor exercitationem dicta adipisci ut vel quae eum?
-          Magni delectus, dolor eius ipsam aut, sequi libero labore voluptates
-          officia ratione quos, similique rerum dicta.
-        </p>
+      <div className="max-w-2xl mr-auto p-12">
+        <div className=" text-justify flex flex-col gap-y-6">
+          <p className="font-switzer text-zinc-900 text-lg font-semibold">
+            <span className="font-bold text-2xl ">Meet Dino:</span> Your Go-To
+            for Web Development & Marketing Dino isn&apos;t just another digital
+            design agency—it&apos;s the heartbeat of innovation, creativity, and
+            results. We&apos;re here to power your online presence, elevate your
+            brand, and turn your vision into a digital reality. But what makes
+            Dino different? Let us show you.
+          </p>
+          <p className="font-switzer text-zinc-900 text-lg font-semibold">
+            <span className="text-2xl">
+              We&apos;re Obsessed with the Details
+            </span>{" "}
+            At Dino, we don&apos;t just build websites; we craft experiences.
+            Every pixel, every line of code, and every piece of content is
+            meticulously designed to ensure your site isn&apos;t just
+            functional—it&apos;s unforgettable. We stay ahead of the curve by
+            using the latest technologies and design trends, so your website
+            technologies and design trends, so your website isn&apos;t just
+            modern today—it&apos;s future-proofed for tomorrow.
+          </p>
+          <p className="font-switzer text-zinc-900 text-lg font-semibold">
+            <span className="font-bold text-2xl">SEO That Actually Works</span>{" "}
+            Let&apos;s be real: SEO can feel like a mystery. But not with Dino.
+            We&apos;re passionate about making your website climb the search
+            engine ladder and stay there. From keyword optimization to
+            lightning-fast load times, we&apos;ve got the tools and expertise to
+            ensure your site ranks high and attracts the right audience. No
+            shortcuts, no fluff— just results.
+          </p>
+          <p className="font-switzer text-zinc-900 text-lg font-semibold">
+            <span className="font-bold text-2xl">
+              Your Success is Our Mission
+            </span>{" "}
+            We don&apos;t just work for you; we work with you. Dino is your
+            partner in every sense of the word. Whether you&apos;re launching a
+            new project, revamping an existing site, or building a full-scale
+            digital strategy, we&apos;re here to guide you every step of the
+            way. We listen, we collaborate, and we deliver solutions that align
+            with your goals—because your success is what drives us.
+          </p>
+          {/* <p className="font-switzer text-zinc-900 text-lg font-semibold">
+            <span className="font-bold text-2xl">Why Choose Dino?</span>{" "}
+            Cutting-Edge Technology: We don&apos;t follow trends—we set them.
+            From responsive design to seamless user experiences, we use the best
+            tools in the industry to make your site stand out. Transparent
+            Process: No jargon, no surprises. We keep you in the loop at every
+            stage, so you always know what&apos;s happening and why. Passionate
+            Team: Our team lives and breathes digital design and marketing.
+            We&apos;re not just good at what we do—we love it. And it shows in
+            every project we deliver. Results-Driven Approach: We don&apos;t
+            just deliver pretty websites; we deliver solutions that drive
+            traffic, engagement, and conversions.
+          </p> */}
+          <p className="font-switzer text-zinc-900 text-lg font-semibold">
+            <span className="font-bold text-2xl">
+              Let&apos;s Build Something Amazing Together
+            </span>{" "}
+            Dino isn&apos;t just about creating websites—it&apos;s about
+            creating opportunities. Whether you&apos;re a startup, a growing
+            business, or an established brand, we&apos;re here to help you
+            thrive in the digital world. Let&apos;s take your online presence to
+            the next level and make your brand impossible to ignore. Ready to
+            roar? Let&apos;s talk.
+          </p>
+        </div>
       </div>
     </div>
   );
