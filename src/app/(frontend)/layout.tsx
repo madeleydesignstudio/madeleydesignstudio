@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import BottomHeader from "@/components/bottom-header";
+import { OpenPanelComponent } from "@openpanel/nextjs";
 
 const boska = localFont({
   src: "../fonts/Boska-Regular.woff",
@@ -49,6 +50,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${boska.variable} ${switzer.variable} antialiased`}>
+        <OpenPanelComponent
+          clientId="345b1ac8-8452-4307-9389-5dab644750b9"
+          trackScreenViews={true}
+          trackAttributes={true}
+          trackOutgoingLinks={true}
+        />
         {children} <BottomHeader />
       </body>
     </html>
