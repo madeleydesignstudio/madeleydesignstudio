@@ -207,7 +207,7 @@ const About = () => {
       <div className="w-full">
         <div className="w-full border-t border-zinc-700" />
       </div>
-      <div className="w-full h-[50vh] relative">
+      {/* <div className="w-full h-[50vh] relative">
         <Image
           src="/arm.png"
           alt="footer-madeleydesignstudio"
@@ -217,7 +217,7 @@ const About = () => {
       </div>
       <div className="w-full">
         <div className="w-full border-t border-zinc-700" />
-      </div>
+      </div> */}
     </div>
   );
 };
