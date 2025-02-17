@@ -10,9 +10,19 @@ const boska = localFont({
 });
 
 const switzer = localFont({
-  src: "../fonts/Switzer-Regular.woff",
+  src: [
+    {
+      path: "../fonts/Switzer-Regular.woff",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Switzer-Bold.woff",
+      weight: "700",
+      style: "normal",
+    },
+  ],
   variable: "--font-switzer",
-  weight: "400",
 });
 
 export const metadata: Metadata = {

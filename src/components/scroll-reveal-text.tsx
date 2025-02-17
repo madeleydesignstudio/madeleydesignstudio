@@ -7,9 +7,15 @@ import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 interface ScrollRevealTextProps {
   text: string;
   className?: string;
+  startProgress?: number;
+  endProgress?: number;
 }
 
-export const ScrollRevealText: React.FC<ScrollRevealTextProps> = ({ text }) => {
+export const ScrollRevealText: React.FC<ScrollRevealTextProps> = ({
+  text,
+  startProgress = 0,
+  endProgress = 1,
+}) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const words = text.split(" ");
 
@@ -29,6 +35,8 @@ export const ScrollRevealText: React.FC<ScrollRevealTextProps> = ({ text }) => {
           progress={scrollYProgress}
           index={index}
           totalWords={words.length}
+          startProgress={startProgress}
+          endProgress={endProgress}
         >
           {word}
         </Word>
@@ -42,6 +50,8 @@ interface WordProps {
   progress: MotionValue<number>;
   index: number;
   totalWords: number;
+  startProgress: number;
+  endProgress: number;
 }
 
 const Word: React.FC<WordProps> = ({
@@ -49,10 +59,16 @@ const Word: React.FC<WordProps> = ({
   progress,
   index,
   totalWords,
+  startProgress,
+  endProgress,
 }) => {
   const opacity = useTransform(
     progress,
-    [index / totalWords, (index + 1) / totalWords],
+    [
+      startProgress + (index / totalWords) * (endProgress - startProgress),
+      startProgress +
+        ((index + 1) / totalWords) * (endProgress - startProgress),
+    ],
     [0, 1]
   );
 
