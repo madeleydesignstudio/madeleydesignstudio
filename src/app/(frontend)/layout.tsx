@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   title: "madeleydesignstudio",
   description: "Digital Web Studio",
   icons: {
-    icon: "/favicon.ico",
+    icon: ["/favicon.ico", "/icon.ico"],
   },
   openGraph: {
     title: "madeleydesignstudio",
@@ -41,13 +41,6 @@ export const metadata: Metadata = {
     images: [{ url: "/logo.png" }],
   },
 };
-
-<link
-  rel="icon"
-  href="/favicon.ico"
-  type="image/<generated>"
-  sizes="<generated>"
-/>;
 
 export default function RootLayout({
   children,
