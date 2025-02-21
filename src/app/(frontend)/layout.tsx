@@ -42,6 +42,13 @@ export const metadata: Metadata = {
   },
 };
 
+<link
+  rel="icon"
+  href="/favicon.ico"
+  type="image/<generated>"
+  sizes="<generated>"
+/>;
+
 export default function RootLayout({
   children,
 }: Readonly<{
