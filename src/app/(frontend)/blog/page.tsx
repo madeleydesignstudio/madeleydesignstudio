@@ -60,17 +60,16 @@ const Blog = async () => {
               </div>
               <div className="prose line-clamp-3">
                 {/* Add a content preview here */}
-                {blog.content && (
-                  <div
-                    className="line-clamp-3"
-                    dangerouslySetInnerHTML={{
-                      __html:
-                        typeof blog.content === "string"
-                          ? (blog.content as string).slice(0, 150) + "..."
-                          : "",
-                    }}
-                  />
-                )}
+                <div
+                  key={blog.id}
+                  className="line-clamp-3"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      typeof blog.content === "string"
+                        ? (blog.content as string).slice(0, 150) + "..."
+                        : "",
+                  }}
+                />
               </div>
               <a
                 href={`/blog/${blog.id}`}

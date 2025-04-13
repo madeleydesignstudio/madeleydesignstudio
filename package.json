@@ -17,6 +17,7 @@
     "@payloadcms/richtext-lexical": "^3.23.0",
     "graphql": "^16.8.1",
     "gsap": "^3.12.7",
+    "lenis": "^1.2.3",
     "motion": "^12.4.3",
     "next": "15.1.7",
     "payload": "^3.23.0",

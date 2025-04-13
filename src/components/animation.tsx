@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useLayoutEffect } from "react";
 import { motion } from "motion/react";
 import { gsap } from "gsap";
 
@@ -60,11 +60,10 @@ const YugaLabsAnimation = () => {
     },
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const timer = setTimeout(() => {
       setShowDots(true);
-    }, 3000); // Increased delay for text animation
-
+    }, 3000);
     return () => clearTimeout(timer);
   }, []);
 

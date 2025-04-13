@@ -14,6 +14,17 @@
   }
 }
 
+@layer utilities {
+  @screen no-hover {
+    .mwg_effect047 {
+      @apply overflow-hidden;
+    }
+    .mwg_effect047 .container ul {
+      @apply hidden;
+    }
+  }
+}
+
 body {
   color: var(--foreground);
   background: var(--background);

@@ -15,6 +15,10 @@ export default {
       fontFamily: {
         boska: ["var(--font-boska)"],
         switzer: ["var(--font-switzer)"],
+        inter: ["Inter", "sans-serif"],
+      },
+      screens: {
+        "no-hover": { raw: "(hover: none)" },
       },
     },
   },

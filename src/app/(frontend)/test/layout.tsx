@@ -8,7 +8,10 @@ export default function TestLayout({
 }) {
   return (
     <div className="test-layout">
-      <Script src="https://cdn.unicorn.studio/v1.4.1/unicornStudio.umd.js" />
+      <Script
+        src="https://cdn.unicorn.studio/v1.4.1/unicornStudio.umd.js"
+        strategy="afterInteractive"
+      />
       {children}
     </div>
   );
