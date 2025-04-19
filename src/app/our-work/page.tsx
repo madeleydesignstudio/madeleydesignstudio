@@ -16,7 +16,7 @@ const projects = [
 
 const OurWork = () => {
   return (
-    <section className="h-full p-2">
+    <section className="h-full p-2  w-full">
       <div className="overflow-x-auto h-full overflow-y-hidden">
         <div>our work</div>
         <ul className="flex items-end h-full">

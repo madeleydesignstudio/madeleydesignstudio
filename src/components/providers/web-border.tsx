@@ -1,4 +1,6 @@
 import React from "react";
+import BottomNav from "../bottom-nav";
+import Header from "../header";
 
 const WebBorder = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -37,8 +39,18 @@ const WebBorder = ({ children }: { children: React.ReactNode }) => {
           <div className="absolute w-[1.5px] h-[12px] -rotate-45 bg-zinc-400" />
         </div>
 
-        <div className="absolute top-[31px] left-[21px] right-[21px] bottom-[31px] overflow-auto h-[calc(100%-62px)] w-[calc(100%-42px)]">
+        {/* Header positioned above top border but between vertical borders */}
+        <div className="absolute left-[21px] right-[21px] h-[30px] z-20">
+          <Header />
+        </div>
+
+        <div className="absolute top-[31px] left-[21px] right-[21px] bottom-[31px] overflow-hidden">
           {children}
+        </div>
+
+        {/* BottomNav positioned just under the bottom border */}
+        <div className="absolute bottom-[6px] left-[21px] right-[21px] z-20">
+          <BottomNav />
         </div>
       </div>
     </div>

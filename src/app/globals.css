@@ -1,7 +1,18 @@
 @import "tailwindcss";
 
 @layer base {
+  html {
+    font-family: system-ui, sans-serif;
+  }
+
   body {
     @apply bg-zinc-900;
+    font-family: var(--font-boska);
+  }
+}
+
+@layer utilities {
+  .will-change-transform {
+    will-change: transform;
   }
 }
