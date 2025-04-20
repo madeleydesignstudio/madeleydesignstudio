@@ -9,6 +9,7 @@ export default function Contact() {
     email: "",
     projectType: "",
     projectDetails: "",
+    marketingConsent: false,
   });
 
   const [digitalFormData, setDigitalFormData] = useState({
@@ -16,6 +17,7 @@ export default function Contact() {
     email: "",
     platformType: "",
     projectDetails: "",
+    marketingConsent: false,
   });
 
   const [isStructureSubmitting, setIsStructureSubmitting] = useState(false);
@@ -74,6 +76,7 @@ export default function Contact() {
           email: "",
           projectType: "",
           projectDetails: "",
+          marketingConsent: false,
         });
       } else {
         throw new Error(data.error || "Something went wrong");
@@ -129,6 +132,7 @@ export default function Contact() {
           email: "",
           platformType: "",
           projectDetails: "",
+          marketingConsent: false,
         });
       } else {
         throw new Error(data.error || "Something went wrong");
@@ -322,6 +326,29 @@ export default function Contact() {
                 />
               </div>
 
+              {/* Marketing consent checkbox */}
+              <div className="mb-4 w-full flex items-center">
+                <input
+                  type="checkbox"
+                  id="structureMarketingConsent"
+                  name="marketingConsent"
+                  checked={structureFormData.marketingConsent}
+                  onChange={(e) =>
+                    setStructureFormData((prev) => ({
+                      ...prev,
+                      marketingConsent: e.target.checked,
+                    }))
+                  }
+                  className="mr-2 h-4 w-4 accent-zinc-600"
+                />
+                <label
+                  htmlFor="structureMarketingConsent"
+                  className="text-xs text-zinc-400 font-bricolage cursor-pointer"
+                >
+                  Keep me updated with Form + Function news and projects
+                </label>
+              </div>
+
               <button
                 type="submit"
                 disabled={isStructureSubmitting}
@@ -416,6 +443,29 @@ export default function Contact() {
                   placeholder="Tell us about your project"
                   required
                 />
+              </div>
+
+              {/* Marketing consent checkbox */}
+              <div className="mb-4 w-full flex items-center">
+                <input
+                  type="checkbox"
+                  id="digitalMarketingConsent"
+                  name="marketingConsent"
+                  checked={digitalFormData.marketingConsent}
+                  onChange={(e) =>
+                    setDigitalFormData((prev) => ({
+                      ...prev,
+                      marketingConsent: e.target.checked,
+                    }))
+                  }
+                  className="mr-2 h-4 w-4 accent-zinc-600"
+                />
+                <label
+                  htmlFor="digitalMarketingConsent"
+                  className="text-xs text-zinc-400 font-bricolage cursor-pointer"
+                >
+                  Keep me updated with Digital Dino news and projects
+                </label>
               </div>
 
               <button
