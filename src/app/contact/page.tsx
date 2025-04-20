@@ -84,7 +84,7 @@ export default function Contact() {
     <div className="w-full h-full">
       <div className="relative w-full h-full overflow-hidden">
         {/* Title */}
-        <h1 className="absolute top-8 left-8 text-2xl font-bold text-white font-boska">
+        <h1 className="absolute top-8 left-[13%] text-2xl font-bold text-white font-boska">
           contact
         </h1>
 
@@ -92,7 +92,7 @@ export default function Contact() {
         <Node
           text="work with us"
           style={{
-            left: "50%",
+            left: "55%",
             top: "10%",
             transform: "translate(-50%, -50%)",
             width: "200px",
@@ -104,7 +104,7 @@ export default function Contact() {
         <div
           className="absolute"
           style={{
-            left: "25%",
+            left: "30%",
             top: "55%",
             transform: "translate(-50%, -50%)",
             width: "35%",
@@ -112,10 +112,6 @@ export default function Contact() {
             border: "1px solid #27272a",
           }}
         >
-          <div className="absolute -top-[12px] left-[20px] bg-black px-2">
-            <span className="text-sm text-white font-boska">Structures</span>
-          </div>
-
           <div className="absolute top-[20px] left-[20px]">
             <span className="text-xs text-zinc-400 font-boska">
               Form + Function
@@ -147,7 +143,7 @@ export default function Contact() {
         <div
           className="absolute"
           style={{
-            left: "75%",
+            left: "80%",
             top: "55%",
             transform: "translate(-50%, -50%)",
             width: "35%",
@@ -155,12 +151,6 @@ export default function Contact() {
             border: "1px solid #27272a",
           }}
         >
-          <div className="absolute -top-[12px] left-[20px] bg-black px-2">
-            <span className="text-sm text-white font-boska">
-              Digital Platforms
-            </span>
-          </div>
-
           <div className="absolute top-[20px] right-[20px]">
             <span className="text-xs text-zinc-400 font-boska">
               Digital Dino
@@ -193,7 +183,7 @@ export default function Contact() {
         <div
           className="absolute border-l border-zinc-800"
           style={{
-            left: "50%",
+            left: "55%",
             top: "calc(5% + 60px)",
             height: "calc(10% - 20px)",
             width: "1px",
@@ -204,18 +194,44 @@ export default function Contact() {
         <div
           className="absolute border-t border-zinc-800"
           style={{
-            left: "25%",
-            top: "calc(20% - 1px)",
+            left: "30%",
+            top: "20%",
             width: "50%",
             height: "1px",
           }}
         />
 
+        {/* Structures label at left end of horizontal line */}
+        <div
+          className="absolute  px-2"
+          style={{
+            left: "calc(30% + 30px)",
+            top: "calc(20% - 25px)",
+            transform: "translateX(-50%)",
+          }}
+        >
+          <span className="text-sm text-white font-boska">Structures</span>
+        </div>
+
+        {/* Digital Platforms label at right end of horizontal line */}
+        <div
+          className="absolute  px-2"
+          style={{
+            left: "calc(80% - 50px)",
+            top: "calc(20% - 25px)",
+            transform: "translateX(-50%)",
+          }}
+        >
+          <span className="text-sm text-white font-boska">
+            Digital Platforms
+          </span>
+        </div>
+
         {/* Vertical lines to each container */}
         <div
           className="absolute border-l border-zinc-800"
           style={{
-            left: "25%",
+            left: "30%",
             top: "20%",
             height: "calc(5%)",
             width: "1px",
@@ -224,7 +240,7 @@ export default function Contact() {
         <div
           className="absolute border-l border-zinc-800"
           style={{
-            left: "75%",
+            left: "80%",
             top: "20%",
             height: "calc(5%)",
             width: "1px",
@@ -233,14 +249,14 @@ export default function Contact() {
 
         {/* Cross marks at the connection to container tops */}
         <CrossMark
-          style={{ left: "calc(25% - 1.5px)", top: "calc(55% - 30% - 1.5px)" }}
+          style={{ left: "calc(30% - 1.5px)", top: "calc(55% - 30% - 1.5px)" }}
         />
         <CrossMark
-          style={{ left: "calc(75% - 1.5px)", top: "calc(55% - 30% - 1.5px)" }}
+          style={{ left: "calc(80% - 1.5px)", top: "calc(55% - 30% - 1.5px)" }}
         />
 
         {/* Description text */}
-        <div className="absolute bottom-8 left-8">
+        <div className="absolute bottom-8 left-[2.5%]">
           <p className="text-sm font-bricolage text-zinc-50 max-w-3xl">
             madeleydesignstudio is the parent company of Form + Function
             (structures) and Digital Dino (digital platforms). Contact the
