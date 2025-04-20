@@ -1,25 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 export default function OurPhilosophy() {
-  const [windowSize, setWindowSize] = useState({
-    width: typeof window !== "undefined" ? window.innerWidth : 1200,
-    height: typeof window !== "undefined" ? window.innerHeight : 800,
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   // Define node component with corner crosses
   const Node = ({
     text,
@@ -201,7 +182,7 @@ export default function OurPhilosophy() {
         <div className="absolute bottom-8 left-8 ">
           <p className="text-sm font-bricolage text-zinc-50 max-w-3xl">
             madeleydesignstudio embodies the future of design, synthesising
-            modern aesthetics and technology to engineer what's next. At the
+            modern aesthetics and technology to engineer what is next. At the
             same time, we draw deeply from the past, guided by a strong interest
             in philosophy. This unique combination allows us to understand the
             psychology of the user—whether interacting with a physical structure
