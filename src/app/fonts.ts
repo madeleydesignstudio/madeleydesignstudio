@@ -72,5 +72,5 @@ export const bricolageFont = Bricolage_Grotesque({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-bricolage",
-  weight: ["400", "500", "700"],
+  weight: ["300", "400", "500", "700"],
 });
