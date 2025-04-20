@@ -22,8 +22,8 @@ export async function POST(request: Request) {
     // Determine the sender and subject based on form type
     const fromAddress =
       formType === "structure"
-        ? "Form + Function <structures@madeleydesignstudio.org>"
-        : "Digital Dino <digital@madeleydesignstudio.org>";
+        ? "Form + Function <daniel@madeleydesignstudio.org>"
+        : "Digital Dino <daniel@madeleydesignstudio.org>";
 
     const subject =
       formType === "structure"
@@ -51,8 +51,8 @@ export async function POST(request: Request) {
     // Department-specific notification email
     const departmentEmail =
       formType === "structure"
-        ? "structures@madeleydesignstudio.org"
-        : "digital@madeleydesignstudio.org";
+        ? "daniel@madeleydesignstudio.org"
+        : "daniel@madeleydesignstudio.org";
 
     // Send notification to the specific department
     await resend.emails.send({

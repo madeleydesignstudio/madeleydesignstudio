@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Contact() {
   // Track form state and loading state
@@ -19,10 +20,6 @@ export default function Contact() {
 
   const [isStructureSubmitting, setIsStructureSubmitting] = useState(false);
   const [isDigitalSubmitting, setIsDigitalSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{
-    success?: boolean;
-    message?: string;
-  } | null>(null);
 
   // Handle input changes
   const handleStructureInputChange = (
@@ -43,7 +40,9 @@ export default function Contact() {
   const handleStructureSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsStructureSubmitting(true);
-    setSubmitStatus(null);
+
+    // Create loading toast
+    const loadingToast = toast.loading("Sending your inquiry...");
 
     try {
       const response = await fetch("/api/send", {
@@ -60,11 +59,15 @@ export default function Contact() {
       const data = await response.json();
 
       if (response.ok) {
-        setSubmitStatus({
-          success: true,
-          message:
-            "Thank you! We've received your structure project inquiry and will get back to you soon.",
-        });
+        // Update toast to success
+        toast.success(
+          "Thank you! We've received your structure project inquiry and will get back to you soon.",
+          {
+            id: loadingToast,
+            duration: 5000,
+          }
+        );
+
         // Reset form
         setStructureFormData({
           name: "",
@@ -76,11 +79,14 @@ export default function Contact() {
         throw new Error(data.error || "Something went wrong");
       }
     } catch (error) {
-      setSubmitStatus({
-        success: false,
-        message:
-          error instanceof Error ? error.message : "Something went wrong",
-      });
+      // Update toast to error
+      toast.error(
+        error instanceof Error ? error.message : "Something went wrong",
+        {
+          id: loadingToast,
+          duration: 5000,
+        }
+      );
     } finally {
       setIsStructureSubmitting(false);
     }
@@ -89,7 +95,9 @@ export default function Contact() {
   const handleDigitalSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsDigitalSubmitting(true);
-    setSubmitStatus(null);
+
+    // Create loading toast
+    const loadingToast = toast.loading("Sending your inquiry...");
 
     try {
       const response = await fetch("/api/send", {
@@ -106,11 +114,15 @@ export default function Contact() {
       const data = await response.json();
 
       if (response.ok) {
-        setSubmitStatus({
-          success: true,
-          message:
-            "Thank you! We've received your digital platform inquiry and will get back to you soon.",
-        });
+        // Update toast to success
+        toast.success(
+          "Thank you! We've received your digital platform inquiry and will get back to you soon.",
+          {
+            id: loadingToast,
+            duration: 5000,
+          }
+        );
+
         // Reset form
         setDigitalFormData({
           name: "",
@@ -122,11 +134,14 @@ export default function Contact() {
         throw new Error(data.error || "Something went wrong");
       }
     } catch (error) {
-      setSubmitStatus({
-        success: false,
-        message:
-          error instanceof Error ? error.message : "Something went wrong",
-      });
+      // Update toast to error
+      toast.error(
+        error instanceof Error ? error.message : "Something went wrong",
+        {
+          id: loadingToast,
+          duration: 5000,
+        }
+      );
     } finally {
       setIsDigitalSubmitting(false);
     }
@@ -171,35 +186,6 @@ export default function Contact() {
     </div>
   );
 
-  // Form input component
-  // const FormInput = ({
-  //   label,
-  //   type = "text",
-  //   placeholder,
-  // }: {
-  //   label: string;
-  //   type?: string;
-  //   placeholder: string;
-  // }) => (
-  //   <div className="mb-4 w-full">
-  //     <label className="block text-xs text-zinc-400 mb-1 font-bricolage">
-  //       {label}
-  //     </label>
-  //     {type === "textarea" ? (
-  //       <textarea
-  //         className="w-full bg-transparent border border-zinc-800 p-2 text-white text-sm font-bricolage h-24 focus:outline-none focus:border-zinc-500"
-  //         placeholder={placeholder}
-  //       />
-  //     ) : (
-  //       <input
-  //         type={type}
-  //         className="w-full bg-transparent border border-zinc-800 p-2 text-white text-sm font-bricolage focus:outline-none focus:border-zinc-500"
-  //         placeholder={placeholder}
-  //       />
-  //     )}
-  //   </div>
-  // );
-
   // Cross marker component for connection points
   const CrossMark = ({ style }: { style: React.CSSProperties }) => (
     <div
@@ -213,16 +199,33 @@ export default function Contact() {
 
   return (
     <div className="w-full h-full">
-      <div className="relative w-full h-full overflow-hidden">
-        {/* Notification message */}
-        {submitStatus && (
-          <div
-            className={`fixed top-8 right-8 p-4 rounded-md z-50 ${submitStatus.success ? "bg-green-900/80" : "bg-red-900/80"}`}
-          >
-            <p className="text-white font-bricolage">{submitStatus.message}</p>
-          </div>
-        )}
+      {/* Toast container */}
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          style: {
+            background: "#111",
+            color: "#fff",
+            borderRadius: "4px",
+            fontSize: "14px",
+            fontFamily: "var(--font-bricolage)",
+          },
+          success: {
+            iconTheme: {
+              primary: "#10b981",
+              secondary: "#111",
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: "#ef4444",
+              secondary: "#111",
+            },
+          },
+        }}
+      />
 
+      <div className="relative w-full h-full overflow-hidden">
         {/* Title */}
         <h1 className="absolute top-8 left-[2.5%] text-2xl font-bold text-white font-boska">
           contact
