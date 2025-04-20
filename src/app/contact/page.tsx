@@ -1,6 +1,137 @@
 "use client";
+import { useState } from "react";
 
 export default function Contact() {
+  // Track form state and loading state
+  const [structureFormData, setStructureFormData] = useState({
+    name: "",
+    email: "",
+    projectType: "",
+    projectDetails: "",
+  });
+
+  const [digitalFormData, setDigitalFormData] = useState({
+    name: "",
+    email: "",
+    platformType: "",
+    projectDetails: "",
+  });
+
+  const [isStructureSubmitting, setIsStructureSubmitting] = useState(false);
+  const [isDigitalSubmitting, setIsDigitalSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    success?: boolean;
+    message?: string;
+  } | null>(null);
+
+  // Handle input changes
+  const handleStructureInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setStructureFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleDigitalInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setDigitalFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // Form submission handlers
+  const handleStructureSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsStructureSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          formType: "structure",
+          ...structureFormData,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({
+          success: true,
+          message:
+            "Thank you! We've received your structure project inquiry and will get back to you soon.",
+        });
+        // Reset form
+        setStructureFormData({
+          name: "",
+          email: "",
+          projectType: "",
+          projectDetails: "",
+        });
+      } else {
+        throw new Error(data.error || "Something went wrong");
+      }
+    } catch (error) {
+      setSubmitStatus({
+        success: false,
+        message:
+          error instanceof Error ? error.message : "Something went wrong",
+      });
+    } finally {
+      setIsStructureSubmitting(false);
+    }
+  };
+
+  const handleDigitalSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsDigitalSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          formType: "digital",
+          ...digitalFormData,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({
+          success: true,
+          message:
+            "Thank you! We've received your digital platform inquiry and will get back to you soon.",
+        });
+        // Reset form
+        setDigitalFormData({
+          name: "",
+          email: "",
+          platformType: "",
+          projectDetails: "",
+        });
+      } else {
+        throw new Error(data.error || "Something went wrong");
+      }
+    } catch (error) {
+      setSubmitStatus({
+        success: false,
+        message:
+          error instanceof Error ? error.message : "Something went wrong",
+      });
+    } finally {
+      setIsDigitalSubmitting(false);
+    }
+  };
+
   // Define node component with corner crosses
   const Node = ({
     text,
@@ -41,33 +172,33 @@ export default function Contact() {
   );
 
   // Form input component
-  const FormInput = ({
-    label,
-    type = "text",
-    placeholder,
-  }: {
-    label: string;
-    type?: string;
-    placeholder: string;
-  }) => (
-    <div className="mb-4 w-full">
-      <label className="block text-xs text-zinc-400 mb-1 font-bricolage">
-        {label}
-      </label>
-      {type === "textarea" ? (
-        <textarea
-          className="w-full bg-transparent border border-zinc-800 p-2 text-white text-sm font-bricolage h-24 focus:outline-none focus:border-zinc-500"
-          placeholder={placeholder}
-        />
-      ) : (
-        <input
-          type={type}
-          className="w-full bg-transparent border border-zinc-800 p-2 text-white text-sm font-bricolage focus:outline-none focus:border-zinc-500"
-          placeholder={placeholder}
-        />
-      )}
-    </div>
-  );
+  // const FormInput = ({
+  //   label,
+  //   type = "text",
+  //   placeholder,
+  // }: {
+  //   label: string;
+  //   type?: string;
+  //   placeholder: string;
+  // }) => (
+  //   <div className="mb-4 w-full">
+  //     <label className="block text-xs text-zinc-400 mb-1 font-bricolage">
+  //       {label}
+  //     </label>
+  //     {type === "textarea" ? (
+  //       <textarea
+  //         className="w-full bg-transparent border border-zinc-800 p-2 text-white text-sm font-bricolage h-24 focus:outline-none focus:border-zinc-500"
+  //         placeholder={placeholder}
+  //       />
+  //     ) : (
+  //       <input
+  //         type={type}
+  //         className="w-full bg-transparent border border-zinc-800 p-2 text-white text-sm font-bricolage focus:outline-none focus:border-zinc-500"
+  //         placeholder={placeholder}
+  //       />
+  //     )}
+  //   </div>
+  // );
 
   // Cross marker component for connection points
   const CrossMark = ({ style }: { style: React.CSSProperties }) => (
@@ -83,8 +214,17 @@ export default function Contact() {
   return (
     <div className="w-full h-full">
       <div className="relative w-full h-full overflow-hidden">
+        {/* Notification message */}
+        {submitStatus && (
+          <div
+            className={`fixed top-8 right-8 p-4 rounded-md z-50 ${submitStatus.success ? "bg-green-900/80" : "bg-red-900/80"}`}
+          >
+            <p className="text-white font-bricolage">{submitStatus.message}</p>
+          </div>
+        )}
+
         {/* Title */}
-        <h1 className="absolute top-8 left-[13%] text-2xl font-bold text-white font-boska">
+        <h1 className="absolute top-8 left-[2.5%] text-2xl font-bold text-white font-boska">
           contact
         </h1>
 
@@ -119,17 +259,74 @@ export default function Contact() {
           </div>
 
           <div className="p-8 pt-12 w-full">
-            <FormInput label="NAME" placeholder="Your name" />
-            <FormInput label="EMAIL" placeholder="Your email" type="email" />
-            <FormInput label="PROJECT TYPE" placeholder="Structure type" />
-            <FormInput
-              label="PROJECT DETAILS"
-              placeholder="Tell us about your project"
-              type="textarea"
-            />
-            <button className="mt-2 border border-zinc-800 hover:border-zinc-500 px-4 py-1 text-xs text-white font-bricolage transition-colors">
-              SUBMIT
-            </button>
+            <form onSubmit={handleStructureSubmit}>
+              <div className="mb-4 w-full">
+                <label className="block text-xs text-zinc-400 mb-1 font-bricolage">
+                  NAME
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={structureFormData.name}
+                  onChange={handleStructureInputChange}
+                  className="w-full bg-transparent border border-zinc-800 p-2 text-white text-sm font-bricolage focus:outline-none focus:border-zinc-500"
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+
+              <div className="mb-4 w-full">
+                <label className="block text-xs text-zinc-400 mb-1 font-bricolage">
+                  EMAIL
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={structureFormData.email}
+                  onChange={handleStructureInputChange}
+                  className="w-full bg-transparent border border-zinc-800 p-2 text-white text-sm font-bricolage focus:outline-none focus:border-zinc-500"
+                  placeholder="Your email"
+                  required
+                />
+              </div>
+
+              <div className="mb-4 w-full">
+                <label className="block text-xs text-zinc-400 mb-1 font-bricolage">
+                  PROJECT TYPE
+                </label>
+                <input
+                  type="text"
+                  name="projectType"
+                  value={structureFormData.projectType}
+                  onChange={handleStructureInputChange}
+                  className="w-full bg-transparent border border-zinc-800 p-2 text-white text-sm font-bricolage focus:outline-none focus:border-zinc-500"
+                  placeholder="Structure type"
+                  required
+                />
+              </div>
+
+              <div className="mb-4 w-full">
+                <label className="block text-xs text-zinc-400 mb-1 font-bricolage">
+                  PROJECT DETAILS
+                </label>
+                <textarea
+                  name="projectDetails"
+                  value={structureFormData.projectDetails}
+                  onChange={handleStructureInputChange}
+                  className="w-full bg-transparent border border-zinc-800 p-2 text-white text-sm font-bricolage h-24 focus:outline-none focus:border-zinc-500"
+                  placeholder="Tell us about your project"
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isStructureSubmitting}
+                className="mt-2 border border-zinc-800 hover:border-zinc-500 px-4 py-1 text-xs text-white font-bricolage transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isStructureSubmitting ? "SENDING..." : "SUBMIT"}
+              </button>
+            </form>
           </div>
 
           {/* Corner crosses */}
@@ -158,17 +355,74 @@ export default function Contact() {
           </div>
 
           <div className="p-8 pt-12 w-full">
-            <FormInput label="NAME" placeholder="Your name" />
-            <FormInput label="EMAIL" placeholder="Your email" type="email" />
-            <FormInput label="PLATFORM TYPE" placeholder="Website, app, etc." />
-            <FormInput
-              label="PROJECT DETAILS"
-              placeholder="Tell us about your project"
-              type="textarea"
-            />
-            <button className="mt-2 border border-zinc-800 hover:border-zinc-500 px-4 py-1 text-xs text-white font-bricolage transition-colors">
-              SUBMIT
-            </button>
+            <form onSubmit={handleDigitalSubmit}>
+              <div className="mb-4 w-full">
+                <label className="block text-xs text-zinc-400 mb-1 font-bricolage">
+                  NAME
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={digitalFormData.name}
+                  onChange={handleDigitalInputChange}
+                  className="w-full bg-transparent border border-zinc-800 p-2 text-white text-sm font-bricolage focus:outline-none focus:border-zinc-500"
+                  placeholder="Your name"
+                  required
+                />
+              </div>
+
+              <div className="mb-4 w-full">
+                <label className="block text-xs text-zinc-400 mb-1 font-bricolage">
+                  EMAIL
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={digitalFormData.email}
+                  onChange={handleDigitalInputChange}
+                  className="w-full bg-transparent border border-zinc-800 p-2 text-white text-sm font-bricolage focus:outline-none focus:border-zinc-500"
+                  placeholder="Your email"
+                  required
+                />
+              </div>
+
+              <div className="mb-4 w-full">
+                <label className="block text-xs text-zinc-400 mb-1 font-bricolage">
+                  PLATFORM TYPE
+                </label>
+                <input
+                  type="text"
+                  name="platformType"
+                  value={digitalFormData.platformType}
+                  onChange={handleDigitalInputChange}
+                  className="w-full bg-transparent border border-zinc-800 p-2 text-white text-sm font-bricolage focus:outline-none focus:border-zinc-500"
+                  placeholder="Website, app, etc."
+                  required
+                />
+              </div>
+
+              <div className="mb-4 w-full">
+                <label className="block text-xs text-zinc-400 mb-1 font-bricolage">
+                  PROJECT DETAILS
+                </label>
+                <textarea
+                  name="projectDetails"
+                  value={digitalFormData.projectDetails}
+                  onChange={handleDigitalInputChange}
+                  className="w-full bg-transparent border border-zinc-800 p-2 text-white text-sm font-bricolage h-24 focus:outline-none focus:border-zinc-500"
+                  placeholder="Tell us about your project"
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={isDigitalSubmitting}
+                className="mt-2 border border-zinc-800 hover:border-zinc-500 px-4 py-1 text-xs text-white font-bricolage transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isDigitalSubmitting ? "SENDING..." : "SUBMIT"}
+              </button>
+            </form>
           </div>
 
           {/* Corner crosses */}
