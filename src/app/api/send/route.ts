@@ -30,6 +30,7 @@ export async function POST(request: Request) {
         ? "Your Structure Project Inquiry"
         : "Your Digital Platform Inquiry";
 
+    // Send confirmation email to the client
     const { data, error } = await resend.emails.send({
       from: fromAddress,
       to: [email],
@@ -47,13 +48,16 @@ export async function POST(request: Request) {
       return Response.json({ error: error.message }, { status: 500 });
     }
 
-    // Also send a notification to the company
+    // Department-specific notification email
+    const departmentEmail =
+      formType === "structure"
+        ? "structures@madeleydesignstudio.org"
+        : "digital@madeleydesignstudio.org";
+
+    // Send notification to the specific department
     await resend.emails.send({
       from: fromAddress,
-      to:
-        formType === "structure"
-          ? "structures@madeleydesignstudio.org"
-          : "digital@madeleydesignstudio.org",
+      to: [departmentEmail],
       subject: `New Inquiry: ${name}`,
       text: `
 New ${formType === "structure" ? "structure" : "digital platform"} inquiry:
@@ -62,6 +66,23 @@ Name: ${name}
 Email: ${email}
 ${formType === "structure" ? "Project Type" : "Platform Type"}: ${formType === "structure" ? projectType : platformType}
 Project Details: ${projectDetails}
+      `,
+    });
+
+    // Send notification to Daniel (parent company)
+    await resend.emails.send({
+      from: fromAddress,
+      to: ["daniel@madeleydesignstudio.org"],
+      subject: `New ${formType === "structure" ? "Structure" : "Digital Platform"} Inquiry: ${name}`,
+      text: `
+A new inquiry has been received by ${formType === "structure" ? "Form + Function" : "Digital Dino"}:
+
+Name: ${name}
+Email: ${email}
+${formType === "structure" ? "Project Type" : "Platform Type"}: ${formType === "structure" ? projectType : platformType}
+Project Details: ${projectDetails}
+
+This is an automated notification from the contact form on madeleydesignstudio.org
       `,
     });
 
