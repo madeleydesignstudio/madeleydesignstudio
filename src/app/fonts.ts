@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import { Bricolage_Grotesque } from "next/font/google";
 
 export const boskaFont = localFont({
   src: [
@@ -65,4 +66,11 @@ export const boskaFont = localFont({
   ],
   variable: "--font-boska",
   display: "swap",
+});
+
+export const bricolageFont = Bricolage_Grotesque({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-bricolage",
+  weight: ["400", "500", "700"],
 });

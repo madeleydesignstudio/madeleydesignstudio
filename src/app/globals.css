@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-boska: var(--font-boska);
+  --font-bricolage: var(--font-bricolage);
+}
+
 @layer base {
   html {
     font-family: system-ui, sans-serif;
@@ -7,12 +13,5 @@
 
   body {
     @apply bg-zinc-900;
-    font-family: var(--font-boska);
-  }
-}
-
-@layer utilities {
-  .will-change-transform {
-    will-change: transform;
   }
 }

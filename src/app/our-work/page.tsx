@@ -1,20 +1,35 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { getAllProjects } from "@/data/projects";
-import ProjectBox from "@/components/project-box";
 
 const OurWork = () => {
   const projects = getAllProjects();
 
   return (
-    <section className="h-full p-2 w-full">
+    <section className="h-full p-2  w-full">
       <div className="overflow-x-auto h-full overflow-y-hidden">
-        <div className="text-zinc-50 text-4xl font-bold mb-6">our work</div>
-        <div className="flex items-end h-full">
+        <div className="text-zinc-50 text-4xl font-bold">our work</div>
+        <ul className="flex items-end h-full">
           {projects.map((project) => (
-            <ProjectBox key={project.id} project={project} />
+            <li
+              key={project.id}
+              className="flex-shrink-0 transition-transform hover:scale-105"
+            >
+              <Link href={`/our-work/${project.id}`}>
+                <div className="relative">
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    width={300}
+                    height={200}
+                  />
+                </div>
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

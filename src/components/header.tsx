@@ -51,7 +51,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="w-full h-full flex justify-between items-center px-8 text-zinc-50 text-xs ">
+    <div className="w-full h-full flex justify-between items-center px-8 text-zinc-50 text-xs font-boska">
       <div>
         <Image src="/logo.png" alt="logo" width={25} height={25} />
       </div>

@@ -10,6 +10,7 @@ const config: Config = {
     fontFamily: {
       sans: ["system-ui", "sans-serif"],
       boska: ["var(--font-boska)"],
+      bricolage: ["var(--font-bricolage)"],
     },
     extend: {},
   },

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import WebBorder from "@/components/providers/web-border";
-import { boskaFont } from "./fonts";
+import { boskaFont, bricolageFont } from "./fonts";
 
 export const metadata: Metadata = {
   title: "madeleydesignstudio",
@@ -14,7 +14,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${boskaFont.variable}`}>
+    <html
+      lang="en"
+      className={`${boskaFont.variable} ${bricolageFont.variable}`}
+    >
       <body>
         <WebBorder>{children}</WebBorder>
       </body>
