@@ -104,11 +104,12 @@ const blogPosts = [
   },
 ];
 
-export default async function BlogPost({
-  params,
-}: {
+type Props = {
   params: { slug: string };
-}) {
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export default async function BlogPost({ params }: Props) {
   const post = blogPosts.find((post) => post.slug === params.slug);
 
   if (!post) {
