@@ -31,7 +31,7 @@ export default function Home() {
           </div>
           <div className=" flex justify-center items-center">
             <Image
-              src="/01.png"
+              src="/danielcmadeley-mockup.jpeg"
               alt="Madeley Design Studio"
               width={960}
               height={540}
