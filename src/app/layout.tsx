@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import WebBorder from "@/components/providers/web-border";
+
 import { boskaFont, bricolageFont } from "./fonts";
 
 export const metadata: Metadata = {

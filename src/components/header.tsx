@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
 const Header = () => {
@@ -53,7 +54,9 @@ const Header = () => {
   return (
     <div className="w-full h-full flex justify-between items-center px-8 text-zinc-50 text-xs font-boska">
       <div>
-        <Image src="/logo.png" alt="logo" width={25} height={25} />
+        <Link href="/">
+          <Image src="/logo.png" alt="logo" width={25} height={25} />
+        </Link>
       </div>
       <div>
         {city}, {time}

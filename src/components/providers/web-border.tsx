@@ -44,7 +44,7 @@ const WebBorder = ({ children }: { children: React.ReactNode }) => {
           <Header />
         </div>
 
-        <div className="absolute top-[31px] left-[21px] right-[21px] bottom-[31px] overflow-hidden">
+        <div className="absolute top-[31px] left-[21px] right-[21px] bottom-[31px] ">
           {children}
         </div>
 
