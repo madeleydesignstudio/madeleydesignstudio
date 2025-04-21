@@ -104,7 +104,11 @@ const blogPosts = [
   },
 ];
 
-export default function BlogPost({ params }: { params: { slug: string } }) {
+type Props = {
+  params: { slug: string };
+};
+
+export default function BlogPost({ params }: Props) {
   const post = blogPosts.find((post) => post.slug === params.slug);
 
   if (!post) {

@@ -51,8 +51,8 @@ export default function OurPhilosophy() {
             left: "15%",
             top: "46%",
             transform: "translate(-50%, -50%)",
-            width: "160px",
-            height: "28px",
+            width: "240px",
+            height: "42px",
           }}
         />
 
@@ -71,8 +71,8 @@ export default function OurPhilosophy() {
                 left: "50%",
                 top: category.top,
                 transform: "translate(-50%, -50%)",
-                width: "160px",
-                height: "28px",
+                width: "240px",
+                height: "42px",
               }}
             />
 
@@ -80,9 +80,9 @@ export default function OurPhilosophy() {
             <div
               className="absolute border-t border-zinc-800"
               style={{
-                left: "calc(15% + 80px)",
+                left: "calc(15% + 120px)",
                 top: "46%",
-                width: "calc((50% - 15% - 160px) / 2)",
+                width: "calc((50% - 15% - 240px) / 4)",
                 height: "1px",
                 transform: "translateY(-50%)",
               }}
@@ -92,7 +92,7 @@ export default function OurPhilosophy() {
             <div
               className="absolute border-l border-zinc-800"
               style={{
-                left: "calc(15% + 80px + ((50% - 15% - 160px) / 2))",
+                left: "calc(15% + 120px + ((50% - 15% - 240px) / 4))",
                 top: category.top < "46%" ? category.top : "46%",
                 height:
                   category.top < "46%"
@@ -106,75 +106,90 @@ export default function OurPhilosophy() {
             <div
               className="absolute border-t border-zinc-800"
               style={{
-                left: "calc(15% + 80px + ((50% - 15% - 160px) / 2))",
+                left: "calc(15% + 120px + ((50% - 15% - 240px) / 4))",
                 top: category.top,
-                width: "calc((50% - 15% - 160px) / 2)",
+                width: "calc((50% - 15% - 240px) / 4)",
                 height: "1px",
                 transform: "translateY(-50%)",
               }}
             ></div>
 
             {/* Sub-nodes for each category */}
-            {[0, 1].map((subIndex) => (
-              <div key={`sub-${index}-${subIndex}`}>
-                {/* Sub-node */}
-                <Node
-                  text={category.text}
-                  style={{
-                    left: "85%",
-                    top: `calc(${index * 21}% + ${
-                      subIndex === 0 ? "7%" : "21%"
-                    })`,
-                    transform: "translate(-50%, -50%)",
-                    width: "160px",
-                    height: "28px",
-                  }}
-                />
+            {[0, 1].map((subIndex) => {
+              // Define subcategories for each main category
+              const subcategories = {
+                engineering: ["Application", "Constraints"],
+                design: ["User", "Intent"],
+                philosophy: ["Inquiry", "Fundamentals"],
+                psychology: ["Mind/Behavior", "Evidence"],
+              };
 
-                {/* Horizontal line from Category */}
-                <div
-                  className="absolute border-t border-zinc-800"
-                  style={{
-                    left: "calc(50% + 80px)",
-                    top: category.top,
-                    width: "calc((85% - 50% - 160px) / 2)",
-                    height: "1px",
-                    transform: "translateY(-50%)",
-                  }}
-                ></div>
+              // Get the current category text and its subcategories
+              const categoryText = category.text;
+              const subCategoryTexts =
+                subcategories[categoryText as keyof typeof subcategories];
 
-                {/* Vertical line from category to subnode */}
-                <div
-                  className="absolute border-l border-zinc-800"
-                  style={{
-                    left: "calc(50% + 80px + ((85% - 50% - 160px) / 2))",
-                    top:
-                      subIndex === 0
-                        ? `calc(${index * 21}% + 7%)`
-                        : category.top,
-                    height:
-                      subIndex === 0
-                        ? `calc(${category.top} - (${index * 21}% + 7%))`
-                        : `calc((${index * 21}% + 21%) - ${category.top})`,
-                    width: "1px",
-                  }}
-                ></div>
+              return (
+                <div key={`sub-${index}-${subIndex}`}>
+                  {/* Sub-node */}
+                  <Node
+                    text={subCategoryTexts[subIndex]}
+                    style={{
+                      left: "85%",
+                      top: `calc(${index * 21}% + ${
+                        subIndex === 0 ? "7%" : "21%"
+                      })`,
+                      transform: "translate(-50%, -50%)",
+                      width: "240px",
+                      height: "42px",
+                    }}
+                  />
 
-                {/* Horizontal line to sub-node */}
-                <div
-                  className="absolute border-t border-zinc-800"
-                  style={{
-                    left: "calc(50% + 80px + ((85% - 50% - 160px) / 2))",
-                    top: `calc(${index * 21}% + ${
-                      subIndex === 0 ? "7%" : "21%"
-                    })`,
-                    width: "calc((85% - 50% - 160px) / 2)",
-                    height: "1px",
-                    transform: "translateY(-50%)",
-                  }}
-                ></div>
-              </div>
-            ))}
+                  {/* Horizontal line from Category */}
+                  <div
+                    className="absolute border-t border-zinc-800"
+                    style={{
+                      left: "calc(50% + 120px)",
+                      top: category.top,
+                      width: "calc((85% - 50% - 240px) / 4)",
+                      height: "1px",
+                      transform: "translateY(-50%)",
+                    }}
+                  ></div>
+
+                  {/* Vertical line from category to subnode */}
+                  <div
+                    className="absolute border-l border-zinc-800"
+                    style={{
+                      left: "calc(50% + 120px + ((85% - 50% - 240px) / 4))",
+                      top:
+                        subIndex === 0
+                          ? `calc(${index * 21}% + 7%)`
+                          : category.top,
+                      height:
+                        subIndex === 0
+                          ? `calc(${category.top} - (${index * 21}% + 7%))`
+                          : `calc((${index * 21}% + 21%) - ${category.top})`,
+                      width: "1px",
+                    }}
+                  ></div>
+
+                  {/* Horizontal line to sub-node */}
+                  <div
+                    className="absolute border-t border-zinc-800"
+                    style={{
+                      left: "calc(50% + 120px + ((85% - 50% - 240px) / 4))",
+                      top: `calc(${index * 21}% + ${
+                        subIndex === 0 ? "7%" : "21%"
+                      })`,
+                      width: "calc((85% - 50% - 240px) / 4)",
+                      height: "1px",
+                      transform: "translateY(-50%)",
+                    }}
+                  ></div>
+                </div>
+              );
+            })}
           </div>
         ))}
 
