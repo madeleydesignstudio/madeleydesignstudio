@@ -104,13 +104,13 @@ const blogPosts = [
   },
 ];
 
-type PageProps = {
-  params: { slug: string };
-  searchParams?: { [key: string]: string | string[] | undefined };
-};
-
-export default async function BlogPost({ params }: PageProps) {
-  const post = blogPosts.find((post) => post.slug === params.slug);
+export default async function BlogPost({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const post = blogPosts.find((post) => post.slug === slug);
 
   if (!post) {
     notFound();
