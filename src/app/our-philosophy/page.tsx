@@ -48,7 +48,7 @@ export default function OurPhilosophy() {
         <Node
           text="madeleydesignstudio"
           style={{
-            left: "15%",
+            left: "35.8%",
             top: "46%",
             transform: "translate(-50%, -50%)",
             width: "240px",
@@ -68,7 +68,7 @@ export default function OurPhilosophy() {
             <Node
               text={category.text}
               style={{
-                left: "50%",
+                left: "60.4%",
                 top: category.top,
                 transform: "translate(-50%, -50%)",
                 width: "240px",
@@ -80,7 +80,7 @@ export default function OurPhilosophy() {
             <div
               className="absolute border-t border-zinc-800"
               style={{
-                left: "calc(15% + 120px)",
+                left: "calc(35.8% + 120px)",
                 top: "46%",
                 width: "calc((50% - 15% - 240px) / 4)",
                 height: "1px",
@@ -92,7 +92,7 @@ export default function OurPhilosophy() {
             <div
               className="absolute border-l border-zinc-800"
               style={{
-                left: "calc(15% + 120px + ((50% - 15% - 240px) / 4))",
+                left: "calc(35.8% + 120px + ((50% - 15% - 240px) / 4))",
                 top: category.top < "46%" ? category.top : "46%",
                 height:
                   category.top < "46%"
@@ -106,7 +106,7 @@ export default function OurPhilosophy() {
             <div
               className="absolute border-t border-zinc-800"
               style={{
-                left: "calc(15% + 120px + ((50% - 15% - 240px) / 4))",
+                left: "calc(35.8% + 120px + ((50% - 15% - 240px) / 4))",
                 top: category.top,
                 width: "calc((50% - 15% - 240px) / 4)",
                 height: "1px",
@@ -149,7 +149,7 @@ export default function OurPhilosophy() {
                   <div
                     className="absolute border-t border-zinc-800"
                     style={{
-                      left: "calc(50% + 120px)",
+                      left: "calc(60.4% + 120px)",
                       top: category.top,
                       width: "calc((85% - 50% - 240px) / 4)",
                       height: "1px",
@@ -161,7 +161,7 @@ export default function OurPhilosophy() {
                   <div
                     className="absolute border-l border-zinc-800"
                     style={{
-                      left: "calc(50% + 120px + ((85% - 50% - 240px) / 4))",
+                      left: "calc(60.4% + 120px + ((85% - 50% - 240px) / 4))",
                       top:
                         subIndex === 0
                           ? `calc(${index * 21}% + 7%)`
@@ -178,7 +178,7 @@ export default function OurPhilosophy() {
                   <div
                     className="absolute border-t border-zinc-800"
                     style={{
-                      left: "calc(50% + 120px + ((85% - 50% - 240px) / 4))",
+                      left: "calc(60.4% + 120px + ((85% - 50% - 240px) / 4))",
                       top: `calc(${index * 21}% + ${
                         subIndex === 0 ? "7%" : "21%"
                       })`,
@@ -195,7 +195,7 @@ export default function OurPhilosophy() {
 
         {/* Description text */}
         <div className="absolute bottom-8 left-8 ">
-          <p className="text-sm font-bricolage text-zinc-50 max-w-3xl">
+          <p className="text-sm text-zinc-50 max-w-3xl font-light font-mono">
             madeleydesignstudio embodies the future of design, synthesising
             modern aesthetics and technology to engineer what is next. At the
             same time, we draw deeply from the past, guided by a strong interest
